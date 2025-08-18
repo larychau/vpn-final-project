@@ -1,66 +1,71 @@
-# vpn-final-project
-## Проверка подключения клиента OpenVPN (client-igor)
+Финальная работа DevOps
+1.1 Описание финальной работы
+Разработка инфраструктуры для централизованного управления учётными записями, с безопасным доступом через VPN, мониторингом, резервным копированием и документацией.
 
-### Контекст
+2.1 Развёртывание удостоверяющего центра (PKI)
+Установка Easy-RSA
 
-- Хост (client): `dev-vm`
-- Конфиг: `/etc/openvpn/igor.conf`
-- Интерфейс: `tun2`
-- IP клиента: `10.8.0.4`
-- Сервер: `another-vm`, IP `10.128.0.4`
-- Статус-файл сервера: `/run/openvpn/server.status`
+Генерация корневого сертификата
 
----
+Скрипты автоматизации
 
-### Шаги проверки
+deb-пакеты конфигурации
 
-1. **Интерфейс**
+Проверка на отдельной VM
 
-   ```bash
-   ip a show dev tun2
-Ожидаем: inet 10.8.0.4/24 scope global tun2
+Артефакты: setup-pki.sh, easy-rsa-config.deb, скриншот ca.crt
 
-Маршрут
+3.1 Создание и настройка VPN-сервера
+Установка OpenVPN
 
-bash
-ip route
-Ожидаем: 10.8.0.0/24 dev tun2 proto kernel scope link src 10.8.0.4
+Подпись серверного сертификата
 
-Пинг до сервера
+Генерация клиентских конфигов
 
-bash
-ping -c 3 10.8.0.1
-Ожидаем: 64 bytes from 10.8.0.1: icmp_seq=1 ttl=64 time=...
+Проверка подключения и смены IP
 
-Внешний IP
+Скрипты и deb-пакеты
 
-bash
-curl -s ifconfig.me
-Ожидаем: внешний IP сервера, если redirect-gateway активен
+Артефакты: setup-vpn.sh, vpn-config.deb, client-igor.ovpn, скриншот подключения
 
-Статус на сервере
+4.1 Настройка мониторинга
+Развёртывание Prometheus
 
-bash
-sudo cat /run/openvpn/server.status | grep 10.8.0.4
-Ожидаем:
+Экспортёры и алерты
 
-Код
-CLIENT_LIST,client-igor,...
-ROUTING_TABLE,10.8.0.4,...
-IP Forwarding
+Alertmanager и email-уведомления
 
-bash
-sudo sysctl net.ipv4.ip_forward
-Ожидаем: net.ipv4.ip_forward = 1
+Скрипты и deb-пакеты
 
-iptables
+Артефакты: prometheus-setup.sh, prometheus-config.deb, скриншот веб-интерфейса
 
-bash
-sudo iptables -L -v -n | grep DROP
-Если ICMP блокируется — разрешить:
+5.1 Создание системы резервного копирования
+План отказоустойчивости
 
-bash
-sudo iptables -A INPUT -i tun+ -p icmp -j ACCEPT
-sudo iptables -A OUTPUT -o tun+ -p icmp -j ACCEPT
-Результат
-Если все шаги пройдены — клиент client-igor подключён, туннель активен, маршрут работает, ICMP доступен, сервер видит клиента.
+Скрипты и deb-пакеты
+
+Хранилище артефактов
+
+Мониторинг компонента
+
+Артефакты: backup.sh, restore.sh, backup-config.deb, документ сценариев отказа
+
+6.1 Подготовка документации
+Схема инфраструктуры
+
+Схема потоков данных
+
+Руководство пользователя VPN
+
+Руководство системного администратора
+
+Артефакты: infra-diagram.png, data-flow.png, vpn-user-guide.md, admin-guide.md
+
+7.1 План развития инфраструктуры
+Идеи по автоматизации и масштабированию
+
+План работ на полгода
+
+Оценка приоритетов
+
+Артефакты: roadmap.md, таблица action items
