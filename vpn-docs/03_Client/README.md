@@ -4,7 +4,7 @@ This block installs the OpenVPN client config and a script to generate client ce
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 sudo dpkg -i debs/vpn-client_1.0-1_all.deb
