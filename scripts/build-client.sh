@@ -50,4 +50,4 @@ $(cat "$KEY")
 CONFIG
 
 chmod 600 "$OUT"
-echo "✅ Saved: $OUT"
+echo "Saved: $OUT"
