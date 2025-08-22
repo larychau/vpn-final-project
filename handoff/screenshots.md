@@ -4,7 +4,7 @@
 
 ---
 
-## 📍 rescue-vm
+##  rescue-vm
 
 ### `prometheus-targets-rescue-vm.png`
 
