@@ -1,0 +1,14 @@
+cat <<EOF > .gitignore
+*.log
+*.tmp
+*.swp
+*.bak
+*.tar.gz
+*.zip
+*.deb
+*.build
+*.changes
+*.dsc
+.vscode/
+.idea/
+EOF

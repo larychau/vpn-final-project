@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VPN Final Project — Reproducible Infrastructure
 
 ## Назначение
@@ -34,3 +35,34 @@ sudo dpkg -i debs/vpn-server_1.0-1_all.deb
 sudo dpkg -i debs/vpn-client_1.0-1_all.deb
 sudo dpkg -i debs/vpn-monitor_1.0-1_all.deb
 sudo dpkg -i debs/vpn-backup_1.0-1_all.deb
+=======
+cat <<EOF > README.md
+# VPN Infrastructure — Финальная работа Skillbox
+
+# Состав проекта
+
+- Скрипты для настройки CA, VPN, мониторинга и бэкапа
+- DEB-пакеты для автоматизации
+- Документация для пользователей и админов
+- Схемы и скриншоты
+- План развития инфраструктуры
+
+# Быстрый запуск
+
+\`\`\`bash
+sudo ./scripts/ca-init.sh
+sudo ./scripts/vpn-setup.sh
+sudo ./scripts/client-gen.sh igor
+sudo ./scripts/monitoring-setup.sh
+sudo ./scripts/backup.sh
+\`\`\`
+
+# Документация
+
+- [Руководство пользователя VPN](docs/user_guide.md)
+- [Руководство администратора](docs/admin_guide.md)
+- [Проектирование мониторинга](docs/monitoring_design.md)
+- [План резервного копирования](docs/backup_plan.md)
+- [Roadmap развития](docs/roadmap.md)
+EOF
+>>>>>>> 1373098 (WIP: правки README и добавлен .gitignore)
