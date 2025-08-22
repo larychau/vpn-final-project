@@ -60,7 +60,7 @@
 
 ---
 
-## 📍 another-vm
+##  another-vm
 
 ### `node-exporter-another-vm.png`
 
