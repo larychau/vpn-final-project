@@ -88,3 +88,12 @@
 - **Ожидаемый вывод:** `go_gc_duration_seconds`, `prometheus_build_info`
 
 ---
+### HighLoad (rescue-vm)
+
+- Файл: `alert.rules.yml`
+- Условие: `node_load1 > 1` в течение 1 минуты
+- Хост: `rescue-vm`
+- Проверка:
+
+```bash
+curl http://localhost:9090/api/v1/alerts
