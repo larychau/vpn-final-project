@@ -90,22 +90,15 @@ sudo dpkg -i debs/vpn-client_1.0-1_all.deb
 sudo dpkg -i debs/vpn-monitor_1.0-1_all.deb
 sudo dpkg -i debs/vpn-backup_1.0-1_all.deb
 	Скрипты
-Скрипт
-Назначение
-vpn-setup.sh
-Полная установка всех компонентов
-build-client.sh
-Генерация .ovpn конфигурации
-validate-client.sh
-Проверка структуры .ovpn, ключей и сертификатов
-vpn-backup.sh
-Создание резервной копии, добавление .norestore
-vpn-restore.sh
-Восстановление из резервной копии
-validate-ssh.sh
-Проверка SSH-ключа, git remote, доступа к GitHub
-post-deploy-validate.sh
-Финальная проверка инфраструктуры
+Скрипт	Назначение
+vpn-setup.sh	Полная установка всех компонентов
+build-client.sh	Генерация .ovpn конфигурации
+validate-client.sh	Проверка структуры .ovpn, ключей и сертификатов
+vpn-backup.sh	Создание резервной копии, добавление .norestore
+vpn-restore.sh	Восстановление из резервной копии
+validate-ssh.sh	Проверка SSH-ключа, git remote, доступа к GitHub
+post-deploy-validate.sh	Финальная проверка инфраструктуры
+
 	Документация и handoff
 Полный гайд по установке, проверке, восстановлению и передаче проекта:
 plaintext
