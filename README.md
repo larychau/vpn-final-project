@@ -12,20 +12,16 @@
 
 ```bash
 sudo bash scripts/vpn-setup.sh
+
 	DEB-пакеты
-Пакет
-Назначение
-openvpn-ca
-PKI и CA
-vpn-server
-Сервер OpenVPN
-vpn-client
-Клиент OpenVPN
-vpn-monitor
-Prometheus + Alertmanager шаблоны
-vpn-backup
-Backup/restore скрипты
+Пакет	Назначение
+openvpn-ca	PKI и CA
+vpn-server	Сервер OpenVPN
+vpn-client	Клиент OpenVPN
+vpn-monitor	Prometheus + Alertmanager шаблоны
+vpn-backup	Backup/restore скрипты
 Все пакеты устанавливаются через dpkg -i, содержат postinst-скрипты и логируют действия в syslog.
+
 	Структура проекта
 plaintext
 vpn-final-project/
@@ -79,8 +75,8 @@ vpn-final-project/
 │   ├── vpn-client-started-rescue-vm.png
 │   ├── vpn-server-conf.png
 │   └── vpn-server-status.png
-
 └── README.md                      # Этот файл
+
 
 	Установка вручную (если не используется vpn-setup.sh)
 bash
@@ -89,6 +85,7 @@ sudo dpkg -i debs/vpn-server_1.0-1_all.deb
 sudo dpkg -i debs/vpn-client_1.0-1_all.deb
 sudo dpkg -i debs/vpn-monitor_1.0-1_all.deb
 sudo dpkg -i debs/vpn-backup_1.0-1_all.deb
+
 	Скрипты
 Скрипт	Назначение
 vpn-setup.sh	Полная установка всех компонентов
@@ -101,7 +98,6 @@ post-deploy-validate.sh	Финальная проверка инфраструк
 
 	Документация и handoff
 Полный гайд по установке, проверке, восстановлению и передаче проекта:
-plaintext
 handoff/Handoff.md
 Содержит:
     • Назначение проекта
@@ -110,6 +106,7 @@ handoff/Handoff.md
     • Потоки данных
     • Скриншоты и мониторинг
     • Финальную структуру handoff
+
 	Проверка после установки
 bash
 ip a | grep tun0
@@ -117,6 +114,7 @@ curl ifconfig.me
 curl localhost:9090/api/v1/alerts
 curl localhost:9100/metrics
 curl localhost:9176/metrics
+
 	Статус
     • Все компоненты установлены и валидированы
     • Скрипты отказоустойчивы, логируют в syslog
