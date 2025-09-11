@@ -99,10 +99,7 @@ ip a | grep tun0
 curl localhost:9090/api/v1/alerts
 curl localhost:9100/metrics
 
-	Потоки данных
-    • CA → VPN-сервер → VPN-клиенты
-    • Exporters → Prometheus → Alertmanager
-    • Backup → geo-репликация → restore
+	<img width="1536" height="1024" alt="System Data Flow Diagram" src="https://github.com/user-attachments/assets/423bd8ba-f530-4533-891f-70662a0efaf9" />
 
 	Скриншоты мониторинга
     • prometheus-targets-rescue-vm.png — targets UP
